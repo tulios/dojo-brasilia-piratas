@@ -49,21 +49,22 @@ public class Loot{
 		}
 		
 		List<Integer> rubisExcluidos = new ArrayList<Integer>();
+		
 		for(Integer pirata: mapa.keySet()){
-
-			distribuirRubis(listaDeTodosRubis, mapa.get(pirata), quantoReceber);
+			List<Integer> listaRubisPirata = mapa.get(pirata);
 			
-			if (somatorio(mapa.get(pirata)) != quantoReceber){
-				while (somatorio(mapa.get(pirata)) != quantoReceber) {
-					int ultimoIndice = mapa.get(pirata).size() - 1;
-					
-					rubisExcluidos.add(mapa.get(pirata).remove(ultimoIndice));
-					distribuirRubis(listaDeTodosRubis, mapa.get(pirata), quantoReceber);
-						
+			while (somatorio(listaRubisPirata) != quantoReceber) {
+				
+				if (listaRubisPirata.size() > 0){
+					int ultimoIndice = listaRubisPirata.size() - 1;
+					rubisExcluidos.add(listaRubisPirata.remove(ultimoIndice));
 				}
-				listaDeTodosRubis.addAll(rubisExcluidos);
-				rubisExcluidos.clear();
+				
+				distribuirRubis(listaDeTodosRubis, listaRubisPirata, quantoReceber);
 			}
+			
+			listaDeTodosRubis.addAll(rubisExcluidos);
+			rubisExcluidos.clear();
 		}
 		
 		return mapa;
