@@ -31,4 +31,35 @@ Dojo 9:30 - 12:35
 *Não usou Python
 *só 1 solução (ia fazer 2)
 *Mac keyboard
-*não versionamos
+*não versionamos  
+
+Dojo 13:00 - 16:00 
+10/10/2009
+
+:)
+
+*Versionamos o código da tarde
+*Corrigimos o teste que estava quebrado
+*Refactoring
+*Infinitest
+*DojoCounter
+*Problema complexo
+
+:(
+
+*Pouca gente
+*Atraso
+*Travamos!
+*Dificuldade em descobrir casos de teste
+          
+
+
+
+
+
+
+
+
+
+
+
