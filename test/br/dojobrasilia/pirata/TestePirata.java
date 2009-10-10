@@ -204,30 +204,6 @@ public class TestePirata {
 		Assert.assertTrue(m.get(2).contains(2));
 	}
 	
-	/*@Test
-	public void testConseguePartilharUmCasoSite(){
-		String[] args= {"2", "9", "12", "14", "17", "23", "32", "34", "40", "42", "49"};
-		
-		Loot loot = new Loot(args);
-		Map<Integer, List<Integer>> m = loot.partilhaRubis();
-		
-		Assert.assertEquals(2 , m.size());
-		
-		Assert.assertEquals(5 , m.get(1).size());
-		Assert.assertTrue(m.get(1).contains(9));
-		Assert.assertTrue(m.get(1).contains(12));
-		Assert.assertTrue(m.get(1).contains(32));
-		Assert.assertTrue(m.get(1).contains(34));
-		Assert.assertTrue(m.get(1).contains(49));
-		
-		Assert.assertEquals(5 , m.get(2).size());
-		Assert.assertTrue(m.get(2).contains(14));
-		Assert.assertTrue(m.get(2).contains(17));
-		Assert.assertTrue(m.get(2).contains(23));
-		Assert.assertTrue(m.get(2).contains(40));
-		Assert.assertTrue(m.get(2).contains(42));
-	}*/
-	
 	@Test
 	public void testConseguePartilharUmCasoTenso(){
 		String[] args= {"2", "5", "4", "3", "2", "2", "2", "2"};
@@ -252,6 +228,94 @@ public class TestePirata {
 		m.get(2).remove(1);
 	}
 	
+	@Test
+	public void testConseguePartilharOnzeRubisCada(){
+		String[] args= {"2", "7", "5", "3", "3", "2", "2"};
+		
+		Loot loot = new Loot(args);
+		Map<Integer, List<Integer>> m = loot.partilhaRubis();
+		
+		Assert.assertEquals(2 , m.size());
+		
+		Assert.assertEquals(m.get(1).toString(), 3 , m.get(1).size());
+		Assert.assertTrue(m.get(1).contains(7));
+		Assert.assertTrue(m.get(1).contains(2));
+		Assert.assertTrue(m.get(1).contains(2));
+		
+		Assert.assertEquals(m.get(2).toString(), 3 , m.get(2).size());
+		Assert.assertTrue(m.get(2).contains(5));
+		Assert.assertTrue(m.get(2).contains(3));
+		m.get(2).remove(1);
+		Assert.assertTrue(m.get(2).contains(3));
+	}
+	
+
+	@Test
+	public void testConseguePartilharDezesseteRubisCada(){
+		String[] args= {"2", "9", "6", "6", "5", "4", "4"};
+		
+		Loot loot = new Loot(args);
+		Map<Integer, List<Integer>> m = loot.partilhaRubis();
+		
+		Assert.assertEquals(2 , m.size());
+		
+		Assert.assertEquals(m.get(1).toString(), 3 , m.get(1).size());
+		Assert.assertTrue(m.get(1).contains(9));
+		Assert.assertTrue(m.get(1).contains(4));
+		Assert.assertTrue(m.get(1).contains(4));
+		
+		Assert.assertEquals(m.get(2).toString(), 3 , m.get(2).size());
+		Assert.assertTrue(m.get(2).contains(6));
+		m.get(2).remove(1);
+		Assert.assertTrue(m.get(2).contains(6));
+		Assert.assertTrue(m.get(2).contains(5));
+	}
+	
+	@Test
+	public void testConseguePartilharTrintaTresRubisCada(){
+		String[] args= {"2", "17", "15", "10", "8", "8", "5", "3"};
+		
+		Loot loot = new Loot(args);
+		Map<Integer, List<Integer>> m = loot.partilhaRubis();
+		
+		Assert.assertEquals(2 , m.size());
+		
+		Assert.assertEquals(m.get(1).toString(), 3 , m.get(1).size());
+		Assert.assertTrue(m.get(1).contains(17));
+		Assert.assertTrue(m.get(1).contains(8));
+		m.get(1).remove(1);
+		Assert.assertTrue(m.get(1).contains(8));
+		
+		Assert.assertEquals(m.get(2).toString(), 4 , m.get(2).size());
+		Assert.assertTrue(m.get(2).contains(15));
+		Assert.assertTrue(m.get(2).contains(10));
+		Assert.assertTrue(m.get(2).contains(5));
+		Assert.assertTrue(m.get(2).contains(3));
+	}
+	
+	/*@Test
+	public void testConseguePartilharUmCasoSite(){
+		String[] args= {"2", "9", "12", "14", "17", "23", "32", "34", "40", "42", "49"};
+		
+		Loot loot = new Loot(args);
+		Map<Integer, List<Integer>> m = loot.partilhaRubis();
+		
+		Assert.assertEquals(2 , m.size());
+		
+		Assert.assertEquals(5 , m.get(1).size());
+		Assert.assertTrue(m.get(1).contains(9));
+		Assert.assertTrue(m.get(1).contains(12));
+		Assert.assertTrue(m.get(1).contains(32));
+		Assert.assertTrue(m.get(1).contains(34));
+		Assert.assertTrue(m.get(1).contains(49));
+		
+		Assert.assertEquals(5 , m.get(2).size());
+		Assert.assertTrue(m.get(2).contains(14));
+		Assert.assertTrue(m.get(2).contains(17));
+		Assert.assertTrue(m.get(2).contains(23));
+		Assert.assertTrue(m.get(2).contains(40));
+		Assert.assertTrue(m.get(2).contains(42));
+	}*/
 }
 
 
