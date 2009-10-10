@@ -237,12 +237,12 @@ public class TestePirata {
 		
 		Assert.assertEquals(2 , m.size());
 		
-		Assert.assertEquals(3 , m.get(1).size());
+		Assert.assertEquals(m.get(1).toString(), 3 , m.get(1).size());
 		Assert.assertTrue(m.get(1).contains(5));
 		Assert.assertTrue(m.get(1).contains(3));
 		Assert.assertTrue(m.get(1).contains(2));
 		
-		Assert.assertEquals(4 , m.get(2).size());
+		Assert.assertEquals(m.get(2).toString(), 4 , m.get(2).size());
 		Assert.assertTrue(m.get(2).contains(4));
 		Assert.assertTrue(m.get(2).contains(2));
 		m.get(2).remove(1);

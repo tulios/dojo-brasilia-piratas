@@ -48,28 +48,42 @@ public class Loot{
 			mapa.put(x+1, new ArrayList<Integer>());
 		}
 		
-		
+		List<Integer> rubisExcluidos = new ArrayList<Integer>();
 		for(Integer pirata: mapa.keySet()){
-			int indiceRubis = 0;
-			while ((somatorio(mapa.get(pirata)) < quantoReceber) && (indiceRubis < listaDeTodosRubis.size())){
-				if (somatorio(mapa.get(pirata))+listaDeTodosRubis.get(indiceRubis)
-						<= quantoReceber) {
-					mapa.get(pirata).add(listaDeTodosRubis.get(indiceRubis));
-					listaDeTodosRubis.remove(indiceRubis);
-				} else {
-					indiceRubis++;
+
+			distribuirRubis(listaDeTodosRubis, mapa.get(pirata), quantoReceber);
+			
+			if (somatorio(mapa.get(pirata)) != quantoReceber){
+				while (somatorio(mapa.get(pirata)) != quantoReceber) {
+					int ultimoIndice = mapa.get(pirata).size() - 1;
+					
+					rubisExcluidos.add(mapa.get(pirata).remove(ultimoIndice));
+					distribuirRubis(listaDeTodosRubis, mapa.get(pirata), quantoReceber);
+						
 				}
+				listaDeTodosRubis.addAll(rubisExcluidos);
+				rubisExcluidos.clear();
 			}
 		}
-		/*
-		for(int x = 0 , y = 0; x < listaDeTodosRubis.size(); x++ , y++){
-			int pirata = (y % qtdPirata) + 1;
-			mapa.get(pirata).add(listaDeTodosRubis.get(x));
-		}
-		*/
+		
 		return mapa;
 	}
 
+	private void distribuirRubis(List<Integer> listaDeTodosRubis, List<Integer> listaRubisPirata, int quantoReceber){
+		int indiceRubis = 0;
+		while ((somatorio(listaRubisPirata) < quantoReceber) && (indiceRubis < listaDeTodosRubis.size())){
+			int quantoTemMaisProximoRuby = somatorio(listaRubisPirata)+listaDeTodosRubis.get(indiceRubis);
+			
+			if (quantoTemMaisProximoRuby <= quantoReceber) {
+				
+				listaRubisPirata.add(listaDeTodosRubis.remove(indiceRubis));
+				
+			} else {
+				indiceRubis++;
+			}
+		}
+	}
+	
 	private int somatorio(List<Integer> lista){
 		int somatorio = 0;
 		for(Integer ruby: lista){
